@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fun Facts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .fact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            line-height: 1.6;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .fact-counter {
+            color: #999;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Fun Facts</h1>
+        <p class="subtitle">Click the button to discover something amazing!</p>
+        
+        <div class="fact-box" id="factBox">
+            Click the button below to get started!
+        </div>
+        
+        <button onclick="displayRandomFact()">Get Random Fact</button>
+        
+        <div class="fact-counter">
+            <span id="factCount">0</span> facts discovered
+        </div>
+    </div>
+
+    <script>
+        const facts = [
+            "Honey never spoils. Archaeologists have found 3,000-year-old honey in Egyptian tombs that was still edible!",
+            "A group of flamingos is called a 'flamboyance'.",
+            "The shortest war in history lasted only 38 to 45 minutes between Britain and Zanzibar in 1896.",
+            "Octopuses have three hearts—two pump blood to the gills, and one pumps it to the rest of the body.",
+            "Bananas are berries, but strawberries aren't!",
+            "A cockroach can live for a week without its head.",
+            "Honey bees can recognize human faces.",
+            "The Great Wall of China is not visible from space with the naked eye.",
+            "Cleopatra lived closer to the invention of the iPhone than to the construction of the Great Pyramid.",
+            "Sloths only defecate once a week.",
+            "A jiffy is an actual unit of time equal to one trillionth of a second.",
+            "Wombats produce cube-shaped poop.",
+            "Dolphins have names for each other.",
+            "Scotland's national animal is a unicorn.",
+            "Butterflies taste with their feet.",
+            "A group of crows is called a 'murder'.",
+            "The smell of bananas can help you lose weight.",
+            "Cats have a third eyelid called the nictitating membrane.",
+            "A newborn kangaroo is only about 1 inch long.",
+            "Penguins have knees, but they're hidden inside their bodies."
+        ];
+
+        let factCount = 0;
+
+        function displayRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const randomFact = facts[randomIndex];
+            
+            const factBox = document.getElementById('factBox');
+            factBox.textContent = randomFact;
+            
+            factCount++;
+            document.getElementById('factCount').textContent = factCount;
+        }
+
+        // Optional: Display a fact on page load
+        window.addEventListener('load', displayRandomFact);
+    </script>
+</body>
+</html>
